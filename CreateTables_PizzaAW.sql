@@ -1,12 +1,13 @@
-drop database if exists PizzaAW;
-create database PizzaAW;
+drop database if exists Pizzadb;
+create database Pizzadb;
 
-USE PizzaAW;
+USE Pizzadb;
 
 
 Drop table if exists Kunde;
 CREATE TABLE Kunde
 	(KdNr INTEGER primary key Auto_Increment,
+	UsNr INTEGER,
 	Name VARCHAR(100),
 	Vorname VARCHAR(100),
 	Strasse VARCHAR(100),
@@ -14,12 +15,12 @@ CREATE TABLE Kunde
 	Ort VARCHAR(100));
 
 
-insert into Kunde (Name, Vorname, Strasse, Plz, Ort) values 
-	('Steinmeiser', 'Franz-Walther', 'AStrasse 12', '01245', 'ADorf'),
-	('Gabrielis', 'Sigmund', 'BStrasse 54', '45455' , 'Goslar'),
-	('Schräder', 'Gerhardt', 'CStrasse 144', '77253', 'Mossenberg-Wöhren'),
-	('Schultz', 'Martha', 'DStrasse 1A', '53997', 'Eschweiler'),
-	('von der Leithen', 'Ursel', 'EStrasse 19', '78315', 'Elsene');
+insert into Kunde (UsNr, Name, Vorname, Strasse, Plz, Ort) values 
+	(1,'Steinmeiser', 'Franz-Walther', 'AStrasse 12', '01245', 'ADorf'),
+	(2,'Gabrielis', 'Sigmund', 'BStrasse 54', '45455' , 'Goslar'),
+	(3,'Schräder', 'Gerhardt', 'CStrasse 144', '77253', 'Mossenberg-Wöhren'),
+	(4,'Schultz', 'Martha', 'DStrasse 1A', '53997', 'Eschweiler'),
+	(5,'von der Leithen', 'Ursel', 'EStrasse 19', '78315', 'Elsene');
 
 
 
@@ -57,3 +58,18 @@ insert into Bestellung (KdNr, IPAddr, SessID, Preis) values
 	
 
 
+
+
+Drop table if exists Position;
+CREATE TABLE Position
+	(PoNr INTEGER primary key Auto_Increment,
+	BeNr INTEGER,
+	PiNr Integer,
+	Anzahl Integer);
+
+
+
+insert into Position (BeNr, PiNr, Anzahl) values 
+	(1, 3, 2),
+	(1, 4, 1),
+	(1, 1, 4);
